@@ -470,7 +470,7 @@ impl WebGLRenderingContext {
     }
 
     fn vertex_attrib(&self, indx: u32, x: f32, y: f32, z: f32, w: f32) {
-        if indx > self.limits.max_vertex_attribs {
+        if indx >= self.limits.max_vertex_attribs {
             return self.webgl_error(InvalidValue);
         }
 
@@ -2206,7 +2206,7 @@ impl WebGLRenderingContextMethods for WebGLRenderingContext {
 
     // https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10
     fn EnableVertexAttribArray(&self, attrib_id: u32) {
-        if attrib_id > self.limits.max_vertex_attribs {
+        if attrib_id >= self.limits.max_vertex_attribs {
             return self.webgl_error(InvalidValue);
         }
 
@@ -2215,7 +2215,7 @@ impl WebGLRenderingContextMethods for WebGLRenderingContext {
 
     // https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10
     fn DisableVertexAttribArray(&self, attrib_id: u32) {
-        if attrib_id > self.limits.max_vertex_attribs {
+        if attrib_id >= self.limits.max_vertex_attribs {
             return self.webgl_error(InvalidValue);
         }
 
@@ -3123,7 +3123,7 @@ impl WebGLRenderingContextMethods for WebGLRenderingContext {
     // https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10
     fn VertexAttribPointer(&self, attrib_id: u32, size: i32, data_type: u32,
                            normalized: bool, stride: i32, offset: i64) {
-        if attrib_id > self.limits.max_vertex_attribs {
+        if attrib_id >= self.limits.max_vertex_attribs {
             return self.webgl_error(InvalidValue);
         }
 
