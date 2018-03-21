@@ -578,11 +578,11 @@ interface WebGLRenderingContextBase
 
     void generateMipmap(GLenum target);
 
-    WebGLActiveInfo? getActiveAttrib(WebGLProgram? program, GLuint index);
-    WebGLActiveInfo? getActiveUniform(WebGLProgram? program, GLuint index);
+    WebGLActiveInfo? getActiveAttrib(WebGLProgram program, GLuint index);
+    WebGLActiveInfo? getActiveUniform(WebGLProgram program, GLuint index);
     //sequence<WebGLShader>? getAttachedShaders(WebGLProgram? program);
 
-    [WebGLHandlesContextLoss] GLint getAttribLocation(WebGLProgram? program, DOMString name);
+    [WebGLHandlesContextLoss] GLint getAttribLocation(WebGLProgram program, DOMString name);
 
     any getBufferParameter(GLenum target, GLenum pname);
     any getParameter(GLenum pname);
@@ -591,20 +591,20 @@ interface WebGLRenderingContextBase
 
     //any getFramebufferAttachmentParameter(GLenum target, GLenum attachment,
     //                                      GLenum pname);
-    any getProgramParameter(WebGLProgram? program, GLenum pname);
-    DOMString? getProgramInfoLog(WebGLProgram? program);
+    any getProgramParameter(WebGLProgram program, GLenum pname);
+    DOMString? getProgramInfoLog(WebGLProgram program);
     //any getRenderbufferParameter(GLenum target, GLenum pname);
-    any getShaderParameter(WebGLShader? shader, GLenum pname);
+    any getShaderParameter(WebGLShader shader, GLenum pname);
     WebGLShaderPrecisionFormat? getShaderPrecisionFormat(GLenum shadertype, GLenum precisiontype);
-    DOMString? getShaderInfoLog(WebGLShader? shader);
+    DOMString? getShaderInfoLog(WebGLShader shader);
 
-    DOMString? getShaderSource(WebGLShader? shader);
+    DOMString? getShaderSource(WebGLShader shader);
 
     any getTexParameter(GLenum target, GLenum pname);
 
-    //any getUniform(WebGLProgram? program, WebGLUniformLocation? location);
+    //any getUniform(WebGLProgram program, WebGLUniformLocation location);
 
-    WebGLUniformLocation? getUniformLocation(WebGLProgram? program, DOMString name);
+    WebGLUniformLocation? getUniformLocation(WebGLProgram program, DOMString name);
 
     any getVertexAttrib(GLuint index, GLenum pname);
 
@@ -634,7 +634,7 @@ interface WebGLRenderingContextBase
     void sampleCoverage(GLclampf value, GLboolean invert);
     void scissor(GLint x, GLint y, GLsizei width, GLsizei height);
 
-    void shaderSource(WebGLShader? shader, DOMString source);
+    void shaderSource(WebGLShader shader, DOMString source);
 
     void stencilFunc(GLenum func, GLint ref, GLuint mask);
     void stencilFuncSeparate(GLenum face, GLenum func, GLint ref, GLuint mask);
@@ -738,7 +738,7 @@ interface WebGLRenderingContextBase
                           object v);
 
     void useProgram(WebGLProgram? program);
-    void validateProgram(WebGLProgram? program);
+    void validateProgram(WebGLProgram program);
 
     // FIXME(dmarcos)
     // The code generator doesn't handle Float32Array so we're using 'object'

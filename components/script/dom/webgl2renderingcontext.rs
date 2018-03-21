@@ -402,39 +402,39 @@ impl WebGL2RenderingContextMethods for WebGL2RenderingContext {
     }
 
     /// https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10
-    fn GetActiveUniform(&self, program: Option<&WebGLProgram>, index: u32) -> Option<DomRoot<WebGLActiveInfo>> {
+    fn GetActiveUniform(&self, program: &WebGLProgram, index: u32) -> Option<DomRoot<WebGLActiveInfo>> {
         self.base.GetActiveUniform(program, index)
     }
 
     /// https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10
-    fn GetActiveAttrib(&self, program: Option<&WebGLProgram>, index: u32) -> Option<DomRoot<WebGLActiveInfo>> {
+    fn GetActiveAttrib(&self, program: &WebGLProgram, index: u32) -> Option<DomRoot<WebGLActiveInfo>> {
         self.base.GetActiveAttrib(program, index)
     }
 
     /// https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10
-    fn GetAttribLocation(&self, program: Option<&WebGLProgram>, name: DOMString) -> i32 {
+    fn GetAttribLocation(&self, program: &WebGLProgram, name: DOMString) -> i32 {
         self.base.GetAttribLocation(program, name)
     }
 
     /// https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.9
-    fn GetProgramInfoLog(&self, program: Option<&WebGLProgram>) -> Option<DOMString> {
+    fn GetProgramInfoLog(&self, program: &WebGLProgram) -> Option<DOMString> {
         self.base.GetProgramInfoLog(program)
     }
 
     #[allow(unsafe_code)]
     /// https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.9
-    unsafe fn GetProgramParameter(&self, cx: *mut JSContext, program: Option<&WebGLProgram>, param_id: u32) -> JSVal {
+    unsafe fn GetProgramParameter(&self, cx: *mut JSContext, program: &WebGLProgram, param_id: u32) -> JSVal {
         self.base.GetProgramParameter(cx, program, param_id)
     }
 
     /// https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.9
-    fn GetShaderInfoLog(&self, shader: Option<&WebGLShader>) -> Option<DOMString> {
+    fn GetShaderInfoLog(&self, shader: &WebGLShader) -> Option<DOMString> {
         self.base.GetShaderInfoLog(shader)
     }
 
     #[allow(unsafe_code)]
     /// https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.9
-    unsafe fn GetShaderParameter(&self, cx: *mut JSContext, shader: Option<&WebGLShader>, param_id: u32) -> JSVal {
+    unsafe fn GetShaderParameter(&self, cx: *mut JSContext, shader: &WebGLShader, param_id: u32) -> JSVal {
         self.base.GetShaderParameter(cx, shader, param_id)
     }
 
@@ -447,9 +447,11 @@ impl WebGL2RenderingContextMethods for WebGL2RenderingContext {
     }
 
     /// https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.10
-    fn GetUniformLocation(&self,
-                          program: Option<&WebGLProgram>,
-                          name: DOMString) -> Option<DomRoot<WebGLUniformLocation>> {
+    fn GetUniformLocation(
+        &self,
+        program: &WebGLProgram,
+        name: DOMString,
+    ) -> Option<DomRoot<WebGLUniformLocation>> {
         self.base.GetUniformLocation(program, name)
     }
 
@@ -573,12 +575,12 @@ impl WebGL2RenderingContextMethods for WebGL2RenderingContext {
     }
 
     /// https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.9
-    fn ShaderSource(&self, shader: Option<&WebGLShader>, source: DOMString) {
+    fn ShaderSource(&self, shader: &WebGLShader, source: DOMString) {
         self.base.ShaderSource(shader, source)
     }
 
     /// https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.9
-    fn GetShaderSource(&self, shader: Option<&WebGLShader>) -> Option<DOMString> {
+    fn GetShaderSource(&self, shader: &WebGLShader) -> Option<DOMString> {
         self.base.GetShaderSource(shader)
     }
 
@@ -747,7 +749,7 @@ impl WebGL2RenderingContextMethods for WebGL2RenderingContext {
     }
 
     /// https://www.khronos.org/registry/webgl/specs/latest/1.0/#5.14.9
-    fn ValidateProgram(&self, program: Option<&WebGLProgram>) {
+    fn ValidateProgram(&self, program: &WebGLProgram) {
         self.base.ValidateProgram(program)
     }
 
